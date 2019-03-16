@@ -10,17 +10,41 @@
 			background-color: red;
 		}
 	</style>
+	<script type="text/javascript" src="./ajax.js"></script>
+	<script type="text/javascript">
+		window.onload=function() {
+			var oUser=document.getElementById('user');
+			var oPass=document.getElementById('password')
+			var oBtn=document.getElementById('btn')	
+			//"http://localhost:8088/user"
+			oBtn.addEventListener('click',function(){
+				console.log('c')
+				var param={
+					'user':oUser.value,
+					'password':oPass.value
+				}
+				ajax({
+					url:"http://localhost:8808/user",
+					method:'post',
+					data:JSON.stringify(param),
+					success:function(res){
+						console.log(typeof(res))
+						alert((JSON.parse(res)).data)
+					},
+					fail:function(err){
+						console.log('err',err)
+					}
+				});
+			})
+		}
+	</script>
 </head>
 <body>
-	<form action="http://localhost:8088/user" method="get">
-		用户名：<input type="text" name="user"><br/>
-		密码：<input type="password" name="pass"><br/>
-		<input type="submit" value="提交" />
+	<form>
+		用户名：<input type="text" name="user" id='user'><br/>
+		密码：<input type="password" name="pass" id='password'><br/>
+		<input type='button' value="提交" id='btn'/>
 	</form>
-	<!-- <form action="http://localhost:8088/" method="post">
-		用户名2：<input type="text" name="user"><br/>
-		密码2：<input type="password" name="pass"><br/>
-		<input type="submit" value="提交" />
-	</form> -->
+
 </body>
 </html>
