@@ -1,12 +1,10 @@
 function ajax(param){
-	console.log('?',param.url)
 	var url=param.url,m=param.method,d=param.data,xhr;
 	if(window.XMLHttpRequest){
 		xhr=new XMLHttpRequest();
 	}else{
 		xhr=new ActiveXObject('Microsoft.XMLHttp')
 	}
-	
 	if(m=='get'){
 		if(JSON.stringify(d)!=='{}'){
 			url+='?'
@@ -31,3 +29,5 @@ function ajax(param){
 		}
 	}
 }
+
+

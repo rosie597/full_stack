@@ -1,0 +1,17 @@
+doctype
+html
+	head
+		meta(charset='utf-8')
+		title using-jade
+		style.
+			div {width:100px;height:100px;background-color:red;display:inline-block;}
+			.active {background-color:green;}
+	body
+		-var a=0;
+		while a<12
+			if a%4==0 && a!=0
+				div.active #{a++}
+			else
+				div #{a++}
+		-for(let i=0;i<arr.length;i++)
+			div=arr[i]

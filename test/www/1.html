@@ -18,13 +18,12 @@
 			var oBtn=document.getElementById('btn')	
 			//"http://localhost:8088/user"
 			oBtn.addEventListener('click',function(){
-				console.log('c')
 				var param={
 					'user':oUser.value,
 					'password':oPass.value
 				}
 				ajax({
-					url:"http://localhost:8808/user",
+					url:"http://localhost:8008/user",
 					method:'post',
 					data:JSON.stringify(param),
 					success:function(res){
